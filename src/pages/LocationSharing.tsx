@@ -44,27 +44,22 @@ const LocationSharing = () => {
           </div>
         </Card>
 
-        {/* Location Sharing Toggle */}
-        <Card className="travel-card p-6 mb-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <div className={`p-2 rounded-full ${isSharing ? 'bg-status-sharing/10' : 'bg-muted'}`}>
-                <Shield className={`w-5 h-5 ${isSharing ? 'text-status-sharing' : 'text-muted-foreground'}`} />
-              </div>
-              <div>
-                <h3 className="font-semibold">Share Live Location</h3>
-                <p className="text-sm text-muted-foreground">
-                  {isSharing ? "Currently sharing your location" : "Location sharing is off"}
-                </p>
-              </div>
-            </div>
-            <Switch
-              checked={isSharing}
-              onCheckedChange={handleToggleSharing}
-              className="data-[state=checked]:bg-status-sharing"
-            />
+        {/* Start Sharing Button */}
+        {!isSharing && (
+          <div className="mb-6">
+            <Button 
+              onClick={handleToggleSharing}
+              className="w-full travel-button-primary"
+              size="lg"
+            >
+              <MapPin size={20} className="mr-2" />
+              Start Sharing Location
+            </Button>
+            <p className="text-xs text-muted-foreground text-center mt-2">
+              Your location will be shared with your trusted contacts until you stop sharing
+            </p>
           </div>
-        </Card>
+        )}
 
         {/* Trusted Contacts */}
         <div className="mb-6">
@@ -98,9 +93,9 @@ const LocationSharing = () => {
           </div>
         </div>
 
-        {/* Action Buttons */}
+        {/* Stop Sharing Button */}
         {isSharing && (
-          <div className="space-y-4">
+          <div className="mt-6">
             <Button 
               onClick={handleToggleSharing}
               variant="destructive"
@@ -110,22 +105,6 @@ const LocationSharing = () => {
               <StopCircle size={20} className="mr-2" />
               Stop Sharing Location
             </Button>
-          </div>
-        )}
-
-        {!isSharing && (
-          <div className="space-y-4">
-            <Button 
-              onClick={handleToggleSharing}
-              className="w-full travel-button-primary"
-              size="lg"
-            >
-              <MapPin size={20} className="mr-2" />
-              Start Sharing Location
-            </Button>
-            <p className="text-xs text-muted-foreground text-center">
-              Your location will be shared with your trusted contacts until you stop sharing
-            </p>
           </div>
         )}
       </div>

@@ -10,6 +10,7 @@ import LocationSharing from "./pages/LocationSharing";
 import Emergency from "./pages/Emergency";
 import TravelDiary from "./pages/TravelDiary";
 import SocialMatching from "./pages/SocialMatching";
+import AIAssistant from "./pages/AIAssistant";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -28,6 +29,7 @@ const App = () => (
             <Route path="/emergency" element={<Emergency />} />
             <Route path="/diary" element={<TravelDiary />} />
             <Route path="/matching" element={<SocialMatching />} />
+            <Route path="/ai-assistant" element={<AIAssistant />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

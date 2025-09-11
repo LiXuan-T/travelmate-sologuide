@@ -1,10 +1,12 @@
 import { useState } from "react";
-import { Plus, Calendar, MapPin, Plane, Hotel, Camera, Share2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { Plus, Calendar, MapPin, Plane, Hotel, Camera, Share2, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
 const TripPlanning = () => {
+  const navigate = useNavigate();
   const [activeTrip, setActiveTrip] = useState("current");
 
   const trips = [
@@ -146,6 +148,15 @@ const TripPlanning = () => {
           </div>
         </div>
       )}
+
+      {/* AI Assistant FAB */}
+      <Button
+        onClick={() => navigate('/ai-assistant')}
+        className="fixed bottom-24 right-4 w-14 h-14 rounded-full travel-button-sunset shadow-lg"
+        size="icon"
+      >
+        <MessageCircle size={24} />
+      </Button>
     </div>
   );
 };

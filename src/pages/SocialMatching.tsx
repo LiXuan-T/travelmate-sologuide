@@ -133,9 +133,9 @@ const SocialMatching = () => {
                 <div className="swipe-card">
                   <Card className="h-full border-0 shadow-lg">
                     {/* Profile Image Area */}
-                    <div className="relative h-2/3 bg-gradient-to-br from-travel-ocean/20 to-travel-sunset/20 flex items-center justify-center">
-                      <Avatar className="w-32 h-32">
-                        <AvatarFallback className="bg-primary text-primary-foreground text-3xl font-bold">
+                    <div className="relative h-1/2 bg-gradient-to-br from-travel-ocean/20 to-travel-sunset/20 flex items-center justify-center">
+                      <Avatar className="w-24 h-24">
+                        <AvatarFallback className="bg-primary text-primary-foreground text-2xl font-bold">
                           {currentTraveler.initials}
                         </AvatarFallback>
                       </Avatar>
@@ -145,7 +145,7 @@ const SocialMatching = () => {
                     </div>
 
                     {/* Profile Info */}
-                    <div className="p-6 h-1/3 overflow-y-auto">
+                    <div className="p-6 h-1/2 overflow-y-auto">
                       <div className="mb-3">
                         <h2 className="text-xl font-bold">{currentTraveler.name}, {currentTraveler.age}</h2>
                         <p className="text-sm text-muted-foreground flex items-center gap-1">

@@ -10,7 +10,7 @@ import {
 
 const BottomNavigation = () => {
   const navItems = [
-    { icon: Home, label: "Feed", path: "/" },
+    { icon: Home, label: "Home", path: "/" },
     { icon: Calendar, label: "Plans", path: "/planning" },
     { icon: MapPin, label: "Location", path: "/location" },
     { icon: AlertTriangle, label: "Emergency", path: "/emergency" },

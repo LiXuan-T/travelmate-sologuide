@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { Search, MessageCircle, Filter } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -10,6 +11,7 @@ import foodMarket from "@/assets/food-market.jpg";
 import mountainTrail from "@/assets/mountain-trail.jpg";
 
 const AiFeed = () => {
+  const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState("All");
   const categories = ["All", "Food", "Attractions", "Itineraries"];
 
@@ -97,14 +99,17 @@ const AiFeed = () => {
       </div>
 
       {/* Feed Content */}
-      <div className="px-4 py-6 space-y-6">
-        {filteredCards.map((card) => (
-          <TravelCard key={card.id} {...card} />
-        ))}
+      <div className="px-4 py-6">
+        <div className="grid grid-cols-2 gap-4">
+          {filteredCards.map((card) => (
+            <TravelCard key={card.id} {...card} />
+          ))}
+        </div>
       </div>
 
       {/* AI Assistant FAB */}
       <Button
+        onClick={() => navigate('/ai-assistant')}
         className="fixed bottom-24 right-4 w-14 h-14 rounded-full travel-button-sunset shadow-lg"
         size="icon"
       >
