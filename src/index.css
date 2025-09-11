@@ -2,39 +2,88 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* TravelMate Design System - Travel-inspired colors and gradients
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Base colors - Light, airy travel theme */
+    --background: 210 20% 98%;
+    --foreground: 215 25% 27%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 215 25% 27%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 215 25% 27%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Travel-inspired primary - Ocean blue */
+    --primary: 200 95% 45%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Secondary - Soft sky */
+    --secondary: 200 30% 95%;
+    --secondary-foreground: 200 95% 35%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Muted tones */
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 15% 55%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Accent - Warm sunset */
+    --accent: 25 95% 65%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Emergency colors - Safety red */
+    --destructive: 0 85% 55%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Borders and inputs */
+    --border: 210 20% 90%;
+    --input: 210 20% 95%;
+    --ring: 200 95% 45%;
+
+    /* Travel-specific colors */
+    --travel-ocean: 200 95% 45%;
+    --travel-sunset: 25 95% 65%;
+    --travel-forest: 140 40% 50%;
+    --travel-sand: 45 25% 85%;
+    --travel-coral: 15 85% 70%;
+    --travel-lavender: 260 30% 85%;
+    
+    /* Emergency theme */
+    --emergency-red: 0 85% 55%;
+    --emergency-red-light: 0 85% 95%;
+    --emergency-dark: 0 0% 15%;
+
+    /* Social colors */
+    --social-like: 340 85% 60%;
+    --social-comment: 200 95% 45%;
+    --social-save: 45 95% 55%;
+
+    /* Status indicators */
+    --status-online: 140 60% 50%;
+    --status-offline: 215 15% 65%;
+    --status-sharing: 200 95% 45%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(200 95% 45%), hsl(220 85% 55%));
+    --gradient-sunset: linear-gradient(135deg, hsl(25 95% 65%), hsl(45 90% 70%));
+    --gradient-ocean: linear-gradient(180deg, hsl(200 95% 45%), hsl(195 100% 35%));
+    --gradient-emergency: linear-gradient(135deg, hsl(0 85% 55%), hsl(15 85% 50%));
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100%), hsl(210 20% 98%));
+    --gradient-travel: linear-gradient(135deg, hsl(200 95% 45%), hsl(25 95% 65%));
+
+    /* Shadows */
+    --shadow-soft: 0 2px 8px hsl(215 25% 27% / 0.08);
+    --shadow-medium: 0 4px 16px hsl(215 25% 27% / 0.12);
+    --shadow-large: 0 8px 32px hsl(215 25% 27% / 0.16);
+    --shadow-emergency: 0 4px 16px hsl(0 85% 55% / 0.25);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    --transition-fast: all 0.15s ease-out;
 
     --radius: 0.5rem;
 
@@ -101,5 +150,110 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer components {
+  /* Travel-specific components */
+  .travel-card {
+    @apply bg-card rounded-2xl shadow-[var(--shadow-medium)] border border-border/50;
+    background: var(--gradient-card);
+    transition: var(--transition-smooth);
+  }
+
+  .travel-card:hover {
+    @apply shadow-[var(--shadow-large)];
+    transform: translateY(-2px);
+  }
+
+  .travel-button-primary {
+    background: var(--gradient-primary);
+    @apply text-primary-foreground font-medium rounded-xl px-6 py-3;
+    box-shadow: var(--shadow-medium);
+    transition: var(--transition-smooth);
+  }
+
+  .travel-button-primary:hover {
+    box-shadow: var(--shadow-large);
+    transform: translateY(-1px);
+  }
+
+  .travel-button-sunset {
+    background: var(--gradient-sunset);
+    @apply text-accent-foreground font-medium rounded-xl px-6 py-3;
+    box-shadow: var(--shadow-medium);
+    transition: var(--transition-smooth);
+  }
+
+  .emergency-button {
+    background: var(--gradient-emergency);
+    @apply text-destructive-foreground font-bold rounded-full;
+    box-shadow: var(--shadow-emergency);
+    transition: var(--transition-bounce);
+  }
+
+  .emergency-button:active {
+    transform: scale(0.95);
+  }
+
+  .social-button {
+    @apply rounded-full p-3 transition-all duration-200;
+  }
+
+  .social-button.like {
+    @apply bg-red-50 text-red-500 hover:bg-red-100;
+  }
+
+  .social-button.comment {
+    @apply bg-blue-50 text-blue-500 hover:bg-blue-100;
+  }
+
+  .social-button.save {
+    @apply bg-yellow-50 text-yellow-600 hover:bg-yellow-100;
+  }
+
+  .status-indicator {
+    @apply w-3 h-3 rounded-full;
+  }
+
+  .status-indicator.online {
+    background-color: hsl(var(--status-online));
+    box-shadow: 0 0 0 2px hsl(var(--status-online) / 0.2);
+  }
+
+  .status-indicator.offline {
+    background-color: hsl(var(--status-offline));
+  }
+
+  .travel-gradient-text {
+    background: var(--gradient-travel);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Mobile optimizations */
+  .mobile-safe-area {
+    @apply pb-safe-area-inset-bottom;
+  }
+
+  .swipe-card {
+    @apply absolute top-0 left-0 w-full h-full rounded-2xl overflow-hidden;
+    background: var(--gradient-card);
+    box-shadow: var(--shadow-large);
+    transition: var(--transition-smooth);
+  }
+
+  .nav-tab {
+    @apply flex flex-col items-center gap-1 p-2 rounded-lg transition-all duration-200;
+  }
+
+  .nav-tab.active {
+    @apply bg-primary/10 text-primary;
+  }
+
+  .nav-tab.inactive {
+    @apply text-muted-foreground hover:text-foreground hover:bg-muted;
   }
 }

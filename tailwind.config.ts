@@ -47,6 +47,30 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        // Travel-specific colors
+        travel: {
+          ocean: "hsl(var(--travel-ocean))",
+          sunset: "hsl(var(--travel-sunset))",
+          forest: "hsl(var(--travel-forest))",
+          sand: "hsl(var(--travel-sand))",
+          coral: "hsl(var(--travel-coral))",
+          lavender: "hsl(var(--travel-lavender))",
+        },
+        emergency: {
+          red: "hsl(var(--emergency-red))",
+          light: "hsl(var(--emergency-red-light))",
+          dark: "hsl(var(--emergency-dark))",
+        },
+        social: {
+          like: "hsl(var(--social-like))",
+          comment: "hsl(var(--social-comment))",
+          save: "hsl(var(--social-save))",
+        },
+        status: {
+          online: "hsl(var(--status-online))",
+          offline: "hsl(var(--status-offline))",
+          sharing: "hsl(var(--status-sharing))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
